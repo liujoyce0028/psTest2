@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<plasterManifest
+  schemaVersion="1.1"
+  templateType="Item" xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
+  <metadata>
+    <name>myFirstPlaster</name>
+    <id>62a08b12-4761-48b2-b364-3d8fb3d94897</id>
+    <version>1.0.0</version>
+    <title>myFirstPlaster</title>
+    <description></description>
+    <author></author>
+    <tags></tags>
+  </metadata>
+  <parameters>
+  <parameter name='ModuleName' type='text' prompt='Enter the name of the module'/>
+  <parameter name='ModuleDesc' type='text' prompt='Brief description of the module'/>
+  <parameter name='ModuleVersion' type='text' prompt='Version number' default='0.0.0.1'/>
+  <parameter name='ModuleAuthor' type='user-fullname' prompt='author'/>
+  <parameter name='Include Argus' type='choice' default='0' store='text' prompt='Include Argus Installation package?'>
+  <choice label='&amp;Yes' help="Will download Argus packages from server." value="$true"/>
+  <choice label='&amp;Not' help="Please copy the folder to VM image" value="$false"/></parameter>
+</parameters>
+  <content></content>
+</plasterManifest>
