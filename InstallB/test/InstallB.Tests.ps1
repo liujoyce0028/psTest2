@@ -1,5 +1,6 @@
-$ModuleManifestName = 'PlasterTemplateA.psd1'
+$ModuleManifestName = 'InstallB.psd1'
 $ModuleManifestPath = "$PSScriptRoot\..\$ModuleManifestName"
+$PSScriptRoot
 
 Describe 'Module Manifest Tests' {
     It 'Passes Test-ModuleManifest' {
@@ -7,4 +8,7 @@ Describe 'Module Manifest Tests' {
         $? | Should Be $true
     }
 }
+Import-Module .\InstallB.psm1
+testCC
 
+Remove-Module InstallB
