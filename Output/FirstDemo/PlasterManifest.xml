@@ -19,6 +19,33 @@
   <parameter name='Include Argus' type='choice' default='0' store='text' prompt='Include Argus Installation package?'>
   <choice label='&amp;Yes' help="Will download Argus packages from server." value="$true"/>
   <choice label='&amp;Not' help="Please copy the folder to VM image" value="$false"/></parameter>
+  <parameter name='FunctionFolders' type='multichoice' default='0,1,2' store='text' prompt='Select folders to include'>
+  <choice label='&amp;Public'
+          help="Add a public folder to module root."
+          value="Public"/>
+  <choice label='P&amp;Internal'
+          help="Add an internal folder to module root."
+          value="Internal"/>
+  <choice label='&amp;Classes'
+          help="Add a classes folder to module root."
+          value="Classes"/>
+  <choice label='&amp;Binaries'
+          help="Add a binaries folder to module root."
+          value="Binaries"/>
+  <choice label='&amp;Binaries'
+          help="Add a data folder to module root."
+          value="Data"/></parameter>
 </parameters>
-  <content></content>
+  <content>
+  <newModuleManifest destination='${PLASTER_PARAM_ModuleName}.psd1'
+                   moduleVersion='$PLASTER_PARAM_Version'
+                   rootModule='${PLASTER_PARAM_ModuleName}.psm1'
+                   author='$PLASTER_PARAM_FullName'
+                   description='$PLASTER_PARAM_ModuleDesc'
+                   encoding='UTF8-NoBOM'
+                   powerShellVersion='5.1'/>
+    <file source='template.psm1' destination='${Plaster_PARAM_ModuleName}.psm1'/>
+  </content>
+
+
 </plasterManifest>
